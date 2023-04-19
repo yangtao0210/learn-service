@@ -23,19 +23,21 @@ func OffsetGetNameList(offset, limit int64) ([]string, error) {
 	start := time.Now().AddDate(0, 0, -5).Unix()
 	fmt.Println(start, end)
 	apiList := make([]*Apis, 0)
-	result := db.Debug().
+	db = db.Debug().
 		Distinct("action_name,first_operator").
-		Where("service_name", "fulfill-service").
-		Order("first_operator").
-		Offset(int(offset)).
-		Limit(int(limit)).
-		Find(&apiList)
-	if result.Error != nil {
+		Where("service_name", "fulfill-service")
+	orders := []string{"action_name", "first_operator"}
+	for _, v := range orders {
+		db = db.Order(v)
+	}
+	db = db.Offset(int(offset)).Limit(int(limit))
+	if db.Find(&apiList).Error != nil {
 		fmt.Println("查询数据错误")
 		return nil, nil
 	}
 	orgIdList := make([]string, len(apiList))
 	for i, api := range apiList {
+		fmt.Println(api)
 		orgIdList[i] = api.ActionName
 	}
 	return orgIdList, nil
@@ -57,10 +59,17 @@ func UpdateApi(api *Apis) error {
 		fmt.Println("获取DB失败")
 		return errors.New("获取DB失败")
 	}
+	filters := make(map[string]interface{})
+	filters["action_name"] = "CreateEventNotify"
+	filters["is_deleted"] = 0
+	db = db.Debug().Model(&Apis{})
+	for k, v := range filters {
+		db = db.Where(fmt.Sprintf("%v = ?", k), v)
+	}
 	params := make(map[string]interface{})
 	params["service_name"] = api.ServiceName
 	params["first_operator"] = api.FirstOperator
-	params["is_deleted"] = 0
-	db.Debug().Model(&Apis{}).Where("action_name = ?", "CreateEventExport").Updates(params)
+	params["is_deleted"] = 1
+	db.Updates(params)
 	return nil
 }

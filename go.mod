@@ -115,4 +115,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/mysql v1.4.6 // indirect
 	gorm.io/gorm v1.24.5 // indirect
+	git.woa.com/tsign/library/boot v0.0.6 // indirect
 )

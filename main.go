@@ -1,12 +1,10 @@
 package main
 
-import "learn_code/db"
+import (
+	"time"
+)
+
+var loc, _ = time.LoadLocation("Asia/Shanghai")
 
 func main() {
-	api := &db.Apis{
-		ServiceName:   "service",
-		FirstOperator: "jacktaoyang",
-		IsDeleted:     0,
-	}
-	db.UpdateApi(api)
 }
