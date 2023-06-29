@@ -52,7 +52,24 @@ func SaveApi(api *Apis) error {
 	db.Debug().Create(api)
 	return nil
 }
+func DeleteApiRecord(api *Apis) error {
+	db := getDB()
+	if db == nil {
+		fmt.Println("获取DB失败")
+		return errors.New("获取DB失败")
+	}
 
+	searchMp := map[string]interface{}{
+		"action_name":  api.ActionName,
+		"service_name": api.ServiceName,
+		"is_deleted":   0,
+	}
+
+	if err := db.Debug().Where(searchMp).Delete(&Apis{}).Error; err != nil {
+		return err
+	}
+	return nil
+}
 func UpdateApi(api *Apis) error {
 	db := getDB()
 	if db == nil {
