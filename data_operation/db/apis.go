@@ -14,7 +14,7 @@ type Apis struct {
 }
 
 func OffsetGetNameList(offset, limit int64) ([]string, error) {
-	db := getDB()
+	db := GetDB()
 	if db == nil {
 		fmt.Println("获取DB失败")
 		return nil, nil
@@ -44,7 +44,7 @@ func OffsetGetNameList(offset, limit int64) ([]string, error) {
 }
 
 func SaveApi(api *Apis) error {
-	db := getDB()
+	db := GetDB()
 	if db == nil {
 		fmt.Println("获取DB失败")
 		return errors.New("获取DB失败")
@@ -53,7 +53,7 @@ func SaveApi(api *Apis) error {
 	return nil
 }
 func DeleteApiRecord(api *Apis) error {
-	db := getDB()
+	db := GetDB()
 	if db == nil {
 		fmt.Println("获取DB失败")
 		return errors.New("获取DB失败")
@@ -71,7 +71,7 @@ func DeleteApiRecord(api *Apis) error {
 	return nil
 }
 func UpdateApi(api *Apis) error {
-	db := getDB()
+	db := GetDB()
 	if db == nil {
 		fmt.Println("获取DB失败")
 		return errors.New("获取DB失败")

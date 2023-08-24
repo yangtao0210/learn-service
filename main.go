@@ -1,46 +1,68 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	excel "github.com/xuri/excelize/v2"
-	"strconv"
-	"time"
+	"os"
+	"strings"
 )
 
-var loc, _ = time.LoadLocation("Asia/Shanghai")
-
-//	func main() {
-//		//api := db.Apis{
-//		//	ActionName:  "CreateEventNotify1",
-//		//	ServiceName: "service",
-//		//}
-//		//if err := db.DeleteApiRecord(&api); err != nil {
-//		//	log.Fatalln("删除失败")
-//		//}
-//		//log.Println("删除成功")
-//	}
-
 func main() {
-	f, _ := excel.OpenFile("txsql_params.xlsx")
-	defer func() {
-		if err := f.Close(); err != nil {
-			fmt.Println(err)
+
+}
+
+func dealFile(filename string) {
+	file, err := os.Open(filename)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		content := scanner.Text()
+		fmt.Println(content)
+		lines = append(lines, strings.TrimSpace(strings.Split(content, "|")[1]))
+	}
+
+	if scanner.Err() != nil {
+		fmt.Println("Error: ", scanner.Err())
+		return
+	}
+
+	result := strings.Join(lines, ",")
+	fmt.Println(result)
+}
+
+// 两数之和
+func twoSum(nums []int, target int) []int {
+	hs := make(map[int]int)
+	for index, num := range nums {
+		if p, ok := hs[target-num]; ok {
+			return []int{p, index}
 		}
-	}()
-	index := 2
-	for {
-		key, _ := f.GetCellValue("Sheet1", fmt.Sprintf("A%d", index))
-		value, _ := f.GetCellValue("Sheet1", fmt.Sprintf("B%d", index))
-		index += 1
-		_, err := strconv.Atoi(value)
-		if err != nil {
-			// 不是纯数字
-			fmt.Printf("mysqld[\"%v\"] = \"%v\"\n", key, value)
+		hs[num] = index
+	}
+	return nil
+}
+
+// 二分查找
+func search(nums []int, target int) int {
+	if target < nums[0] || target > nums[len(nums)-1] {
+		return -1
+	}
+	left, right := 0, len(nums)-1
+	for left <= right {
+		mid := left + (right-left)/2
+		if target < nums[mid] {
+			right = mid - 1
+		} else if target > nums[mid] {
+			left = mid + 1
 		} else {
-			fmt.Printf("mysqld[\"%v\"] = %v\n", key, value)
-		}
-		if index == 37 {
-			break
+			return mid
 		}
 	}
+	return -1
 }
