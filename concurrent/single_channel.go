@@ -28,10 +28,10 @@ func printer(in <-chan int) {
 	}
 }
 
-func main() {
-	ch1 := make(chan int)
-	ch2 := make(chan int)
-	go counter(ch1)
-	go squarer(ch2, ch1)
-	printer(ch2)
-}
+//func main() {
+//	ch1 := make(chan int)
+//	ch2 := make(chan int)
+//	go counter(ch1)
+//	go squarer(ch2, ch1)
+//	printer(ch2)
+//}

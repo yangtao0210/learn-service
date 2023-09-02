@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 /**
 1.channel是引用类型,声明时需要指定元素类型;
@@ -9,15 +12,16 @@ import "fmt"
 4.有缓冲的通道
 */
 
-func recv(c chan int) {
-	res := <-c
-	fmt.Println("接收成功:", res)
+func send(c chan int) {
+	time.Sleep(2 * time.Second)
+	fmt.Println("发送数据...")
+	c <- 10
 }
 
-//func main() {
-//	ch := make(chan int)
-//	//启用另一个协程接收通道元素
-//	go recv(ch)
-//	ch <- 10
-//	fmt.Println("发送成功")
-//}
+func main() {
+	// 新建通道
+	ch := make(chan int)
+	//启用另一个协程接收通道元素
+	go send(ch)
+	fmt.Println("取数据...", <-ch)
+}
