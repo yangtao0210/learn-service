@@ -1,4 +1,4 @@
-package algorithm
+package data_struct
 
 // Ring 循环链表
 type Ring struct {

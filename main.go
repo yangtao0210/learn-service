@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	ath "learn-service/algorithm"
+	ath "learn-service/algorithm/data_struct"
 )
 
 func main() {
