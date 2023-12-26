@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/bregydoc/gtranslate"
+	"github.com/gogf/gf/v2/i18n/gi18n"
+	"github.com/gogf/gf/v2/os/gctx"
 	"github.com/gogf/gf/v2/text/gregex"
 	"github.com/tealeg/xlsx"
 	"golang.org/x/text/language"
@@ -42,7 +44,14 @@ type Response struct {
 }
 
 func main() {
-	Excel2UpdateCNSQL()
+	//Excel2UpdateCNSQL()
+	var (
+		ctx  = gctx.New()
+		i18n = gi18n.New()
+	)
+
+	ctx = gi18n.WithLanguage(ctx, "zh-CN")
+	fmt.Println(i18n.Translate(ctx, `After inserting delayed_insert_limit rows, the INSERT DELAYED handler will check if there are any SELECT statements pending. If so, it allows these to execute before continuing`))
 }
 
 // RegularMatch 正则匹配
