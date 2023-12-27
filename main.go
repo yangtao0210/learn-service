@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/bregydoc/gtranslate"
-	"github.com/gogf/gf/v2/i18n/gi18n"
-	"github.com/gogf/gf/v2/os/gctx"
 	"github.com/gogf/gf/v2/text/gregex"
 	"github.com/tealeg/xlsx"
 	"golang.org/x/text/language"
@@ -45,13 +43,21 @@ type Response struct {
 
 func main() {
 	//Excel2UpdateCNSQL()
-	var (
-		ctx  = gctx.New()
-		i18n = gi18n.New()
-	)
-
-	ctx = gi18n.WithLanguage(ctx, "zh-CN")
-	fmt.Println(i18n.Translate(ctx, `After inserting delayed_insert_limit rows, the INSERT DELAYED handler will check if there are any SELECT statements pending. If so, it allows these to execute before continuing`))
+	varMap := make(map[string]string, 0)
+	varMap["innodb_stats_method"] = "在收集有关innodb表索引值分布的统计信息时，服务器处理null值方法"
+	varMap["innodb_encryption_algorithm"] = "设置tablespace加密算法"
+	varMap["innodb_thread_sleep_delay"] = "thread未能进入INNODB存储引擎后，需要等待innodb_thread_sleep_delay毫秒再次尝试进入"
+	varMap["binlog_format"] = "二进制日志的类型"
+	varMap["max_binlog_size"] = "二进制日志文件上限"
+	varMap["sqlasyn"] = "是否开启强同步复制"
+	varMap["sqlasync_after_sync"] = "是否在备机给应答之后再在引擎层commit,类似于半同步的AFTER SYNC&AFTER COMMIT"
+	varMap["sqlasyntimeout"] = "强同步等待时间，单位为秒，超时之后会报超时的错误并断开连接"
+	updateSql := ""
+	for k, v := range varMap {
+		desc := TranslateToEnglish(v)
+		updateSql += fmt.Sprintf("update chai_oss.default_param_config set desc_en = '%v' where component = 'dn' and param_name = '%v';\n", desc, k)
+	}
+	fmt.Println(updateSql)
 }
 
 // RegularMatch 正则匹配
