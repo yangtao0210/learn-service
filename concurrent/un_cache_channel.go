@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /**
 1.channel是引用类型,声明时需要指定元素类型;
@@ -14,10 +16,19 @@ func recv(c chan int) {
 	fmt.Println("接收成功:", res)
 }
 
-//func main() {
-//	ch := make(chan int)
-//	//启用另一个协程接收通道元素
-//	go recv(ch)
-//	ch <- 10
-//	fmt.Println("发送成功")
-//}
+func read(ch chan int) {
+	for {
+		val, ok := <-ch
+		fmt.Println(val)
+		if !ok {
+			break
+		}
+	}
+}
+
+func write(ch chan int) {
+	defer close(ch)
+	for i := 0; i < 4; i++ {
+		ch <- i
+	}
+}

@@ -8,8 +8,10 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/gogf/gf/v2 v2.6.1
 	github.com/robfig/cron/v3 v3.0.1
+	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/streadway/amqp v1.0.0
 	github.com/tealeg/xlsx v1.0.5
+	golang.org/x/net v0.17.0
 	golang.org/x/text v0.13.0
 	gorm.io/driver/mysql v1.4.6
 	gorm.io/gorm v1.24.5
