@@ -1,4 +1,4 @@
-package algrithm
+package leetcode
 
 func replaceNumber(s string) string {
 	replace := "number"

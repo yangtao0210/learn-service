@@ -1,4 +1,4 @@
-package algrithm
+package leetcode
 
 func getNext(s string) []int {
 	//1.初始化

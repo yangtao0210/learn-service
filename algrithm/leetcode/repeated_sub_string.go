@@ -1,4 +1,4 @@
-package algrithm
+package leetcode
 
 import "strings"
 
