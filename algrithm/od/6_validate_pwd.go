@@ -1,6 +1,20 @@
 package od
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func TestValidatePassword() {
+	for {
+		var str string
+		fmt.Scan(&str)
+		if strings.EqualFold(str, "-1") {
+			return
+		}
+		fmt.Println(ValidatePassword(str))
+	}
+}
 
 func ValidatePassword(str string) (string, bool) {
 	res := ""

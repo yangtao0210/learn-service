@@ -1,6 +1,29 @@
 package od
 
-import "sort"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+func TestMinEatingSpeed() {
+	read := bufio.NewReader(os.Stdin)
+	//输入n个桃子数量
+	bytes, _, _ := read.ReadLine()
+	nums := strings.Split(string(bytes), " ")
+	//输入小时h
+	nBytes, _, _ := read.ReadLine()
+	h, _ := strconv.Atoi(string(nBytes))
+	piles := make([]int, 0)
+	for _, num := range nums {
+		number, _ := strconv.Atoi(num)
+		piles = append(piles, number)
+	}
+	fmt.Println(MinEatingSpeed(piles, h))
+}
 
 func MinEatingSpeed(piles []int, h int) int {
 	if h < len(piles) {

@@ -1,6 +1,29 @@
 package od
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
+func TestAmountCount() {
+	for {
+		reader := bufio.NewReader(os.Stdin)
+		lineBytes, _, _ := reader.ReadLine()
+		strs := strings.Split(string(lineBytes), " ")
+		if len(strs) <= 2 {
+			break
+		}
+		var nums []int
+		for _, str := range strs {
+			num, _ := strconv.Atoi(str)
+			nums = append(nums, num)
+		}
+		fmt.Println(AmountCount(nums))
+	}
+}
 
 func AmountCount(nums []int) int {
 	res := 0

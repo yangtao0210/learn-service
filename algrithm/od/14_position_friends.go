@@ -1,9 +1,30 @@
 package od
 
 import (
+	"bufio"
 	"container/list"
+	"fmt"
 	"math"
+	"os"
+	"strconv"
+	"strings"
 )
+
+func TestFriendPosition() {
+	read := bufio.NewReader(os.Stdin)
+	//输入n
+	nBytes, _, _ := read.ReadLine()
+	n, _ := strconv.Atoi(string(nBytes))
+	//输入n个身高
+	bytes, _, _ := read.ReadLine()
+	nums := strings.Split(string(bytes), " ")
+	heights := make([]int, n)
+	for i, num := range nums {
+		number, _ := strconv.Atoi(num)
+		heights[i] = number
+	}
+	fmt.Println(FriendPosition(heights))
+}
 
 func FriendPosition(heights []int) []int {
 	math.Ceil(float64(6 / 2))

@@ -4,10 +4,18 @@ import "fmt"
 
 var used []bool
 var path []byte
-var res int
+var maxRes int
+
+func TestNumberOfSpecialStr() {
+	var s string
+	var n int
+	fmt.Scan(&s)
+	fmt.Scan(&n)
+	fmt.Println(NumberOfSpecialStr(s, n))
+}
 
 func NumberOfSpecialStr(str string, n int) int {
-	res = 0
+	maxRes = 0
 	used = make([]bool, len(str))
 	backtracking(str, n)
 	return res
@@ -15,7 +23,7 @@ func NumberOfSpecialStr(str string, n int) int {
 
 func backtracking(str string, n int) {
 	if len(path) == n {
-		res++
+		maxRes++
 		return
 	}
 	for i := 0; i < len(str); i++ {

@@ -1,5 +1,13 @@
 package od
 
+import "fmt"
+
+func TestMaxLengthContainsO() {
+	var str string
+	fmt.Scan(&str)
+	fmt.Println(MaxLengthContainsO(str))
+}
+
 func MaxLengthContainsO(str string) int {
 	//思路：因为首位相连，故只需统计字符串中o出现的次数，分为以下两种情况
 	//奇数个O:删除一个o即为结果

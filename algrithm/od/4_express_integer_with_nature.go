@@ -6,6 +6,17 @@ import (
 	"strconv"
 )
 
+func TestExpressIntegerWithNature() {
+	for {
+		var n int
+		fmt.Scan(&n)
+		if n == -1 {
+			break
+		}
+		ExpressIntegerWithNature(n)
+	}
+}
+
 func ExpressIntegerWithNature(target int) {
 	if target <= 2 {
 		fmt.Println(strconv.Itoa(target) + "=" + strconv.Itoa(target))

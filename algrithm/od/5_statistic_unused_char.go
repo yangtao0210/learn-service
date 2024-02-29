@@ -1,6 +1,26 @@
 package od
 
-import "strings"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func TestStatisticUnusedChars() {
+	for {
+		var str string
+		fmt.Scan(&str)
+		if strings.EqualFold(str, " ") {
+			return
+		}
+		res := StatisticUnusedChars(str)
+		resStr := ""
+		for k, v := range res {
+			resStr += string(k) + ":" + strconv.Itoa(int(v)) + ","
+		}
+		fmt.Println(resStr[:len(resStr)-1])
+	}
+}
 
 func StatisticUnusedChars(str string) map[byte]uint8 {
 	strs := strings.Split(str, "@")

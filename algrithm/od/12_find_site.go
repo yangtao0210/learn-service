@@ -2,6 +2,12 @@ package od
 
 import "fmt"
 
+func TestFindSite() {
+	var str string
+	fmt.Scan(&str)
+	fmt.Println(FindSite([]byte(str)))
+}
+
 func FindSite(sites []byte) int {
 	count := 0
 	for i := 1; i < len(sites); i++ {

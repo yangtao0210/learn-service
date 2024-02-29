@@ -1,9 +1,31 @@
 package od
 
-import "math"
+import (
+	"bufio"
+	"fmt"
+	"math"
+	"os"
+	"strconv"
+	"strings"
+)
 
 var totalSum int
 var res int
+
+func TestGetMinDiff() {
+	read := bufio.NewReader(os.Stdin)
+	//输入10个元素
+	bytes, _, _ := read.ReadLine()
+	nums := strings.Split(string(bytes), " ")
+	scores := make([]int, 10)
+	for i, num := range nums {
+		number, _ := strconv.Atoi(num)
+		if i < 10 {
+			scores[i] = number
+		}
+	}
+	fmt.Println(GetMinDiff(scores))
+}
 
 func GetMinDiff(scores []int) int {
 	res = math.MaxInt

@@ -4,6 +4,14 @@ import (
 	"fmt"
 )
 
+func TestMetaSubstrMaxLength() {
+	var flaw int
+	var str string
+	fmt.Scan(&flaw)
+	fmt.Scan(&str)
+	fmt.Println(MetaSubstrMaxLength(str, flaw))
+}
+
 func MetaSubstrMaxLength(str string, gap int) int {
 	res := 0
 	metaSet := make(map[int32]struct{})

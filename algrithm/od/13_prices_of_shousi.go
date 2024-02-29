@@ -1,8 +1,24 @@
 package od
 
 import (
+	"bufio"
 	"container/list"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
+
+func TestPricesOfShousi() {
+	reader := bufio.NewReader(os.Stdin)
+	strByte, _, _ := reader.ReadLine()
+	nums := make([]int, 0)
+	for _, s := range strings.Split(string(strByte), " ") {
+		num, _ := strconv.Atoi(s)
+		nums = append(nums, num)
+	}
+	fmt.Println(PricesOfShousi(nums))
+}
 
 func PricesOfShousi(prices []int) []int {
 	res, length := make([]int, len(prices)), len(prices)
