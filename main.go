@@ -7,5 +7,11 @@ func main() {
 	//od.TestBalancedStringSplit()
 	//od.TestGetMinRobotEnergy()
 	//od.TaxiBilling()
-	od.RichestLittleFamily()
+	//od.RichestLittleFamily()
+	//od.OpenResourceHotSort()
+	//od.AttendanceRecord()
+	//od.DiffAbsOfHeight()
+	//od.CoverMaxArea()
+	//od.MaxWeightRemainSilver()
+	od.HotPageCount()
 }
