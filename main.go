@@ -19,5 +19,8 @@ func main() {
 	//od.ClearRepeatElem()
 	//od.OrderOfStudents()
 	//od.HeightAndWeightOrder()
-	od.ExchangeToMinStr()
+	//od.ExchangeToMinStr()
+	//od.GpuScheduleTime()
+	//od.SumOfMaxAndMinN()
+	od.SearchPositionBinary()
 }
