@@ -13,5 +13,11 @@ func main() {
 	//od.DiffAbsOfHeight()
 	//od.CoverMaxArea()
 	//od.MaxWeightRemainSilver()
-	od.HotPageCount()
+	//od.HotPageCount()
+	//od.AbstractOfString()
+	//od.SortedByLowestPosition()
+	//od.ClearRepeatElem()
+	//od.OrderOfStudents()
+	//od.HeightAndWeightOrder()
+	od.ExchangeToMinStr()
 }
