@@ -22,5 +22,9 @@ func main() {
 	//od.ExchangeToMinStr()
 	//od.GpuScheduleTime()
 	//od.SumOfMaxAndMinN()
-	od.SearchPositionBinary()
+	//od.SearchPositionBinary()
+	//od.MaxCountGems()
+	//od.RsaEncode()
+	//od.WordCountOfGrasp()
+	od.AssignCpuFromTwoGroups()
 }
