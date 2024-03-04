@@ -26,5 +26,8 @@ func main() {
 	//od.MaxCountGems()
 	//od.RsaEncode()
 	//od.WordCountOfGrasp()
-	od.AssignCpuFromTwoGroups()
+	//od.AssignCpuFromTwoGroups()
+	//od.GetLuckyNumber()
+	//od.GuestFromOtherCountry()
+	od.PathsOfVisited()
 }
