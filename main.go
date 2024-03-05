@@ -29,5 +29,7 @@ func main() {
 	//od.AssignCpuFromTwoGroups()
 	//od.GetLuckyNumber()
 	//od.GuestFromOtherCountry()
-	od.PathsOfVisited()
+	//od.PathsOfVisited()
+	//od.PrintWordMatchedWithInputPrefix()
+	od.PositionSmallestKAscii()
 }
