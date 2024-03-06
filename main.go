@@ -31,5 +31,12 @@ func main() {
 	//od.GuestFromOtherCountry()
 	//od.PathsOfVisited()
 	//od.PrintWordMatchedWithInputPrefix()
-	od.PositionSmallestKAscii()
+	//od.PositionSmallestKAscii()
+	//od.SpliceUrl()
+	//od.ParkedCarsMinCount()
+	//od.LoadBalanceApiCluster()
+	//od.MaxDispatchTeamsCount()
+	//od.SumOfContinuousInterval()
+	od.SplitAndTransferString()
+
 }
