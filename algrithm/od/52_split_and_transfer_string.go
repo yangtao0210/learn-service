@@ -28,13 +28,12 @@ func SplitAndTransferString() {
 
 func appendStrToResult(str string, k int) {
 	c, loop := 0, len(str)/k
-	if c < loop {
-		fmt.Println(c, str[c*k:(c+1)*k])
+	for c < loop {
 		resSlice = append(resSlice, transferStr(str[c*k:(c+1)*k]))
 		c++
-		if c == loop-1 && len(str)%k != 0 {
-			resSlice = append(resSlice, transferStr(str[c*k:]))
-		}
+	}
+	if len(str)%k != 0 {
+		resSlice = append(resSlice, transferStr(str[c*k:]))
 	}
 }
 
