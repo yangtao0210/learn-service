@@ -37,6 +37,8 @@ func main() {
 	//od.LoadBalanceApiCluster()
 	//od.MaxDispatchTeamsCount()
 	//od.SumOfContinuousInterval()
-	od.SplitAndTransferString()
+	//od.SplitAndTransferString()
+	//od.ContinuousCharLength()
+	od.TransferAndCompulateExpress()
 
 }
