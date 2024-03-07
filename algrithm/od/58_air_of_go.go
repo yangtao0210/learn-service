@@ -10,7 +10,7 @@ import (
 
 const side int = 18
 
-func AirOfGo() {
+func Airs() {
 	reader := bufio.NewScanner(os.Stdin)
 	var blacks, whites []int
 	row := 0

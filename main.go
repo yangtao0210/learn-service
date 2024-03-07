@@ -41,6 +41,5 @@ func main() {
 	//od.ContinuousCharLength()
 	//od.TransferAndCompulateExpress()
 	//od.AirportFlightScheduler()
-	od.AirOfGo()
-
+	od.Airs()
 }
