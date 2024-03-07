@@ -23,17 +23,14 @@ func TransferAndCompulateExpress() {
 	for index < len(str) {
 		c := str[index]
 		//如果当前字符是数字
-		fmt.Println(c, '#', '$')
-		if c != '#' || c != '$' {
+		if c >= '0' && c <= '9' {
 			start := index
-			for index < len(str) && c != '#' || c != '$' {
+			for index < len(str) && str[index] >= '0' && str[index] <= '9' {
 				index++
 			}
-			fmt.Println(start, index, str[start:index])
 			num, _ := strconv.Atoi(str[start:index])
 			stack.PushBack(num)
 		} else {
-			fmt.Println("运算符")
 			if c == '$' {
 				elem := stack.Back()
 				firstOperate := elem.Value.(int)
@@ -41,7 +38,7 @@ func TransferAndCompulateExpress() {
 				//索引后移，获取下一个操作数
 				index++
 				start := index
-				for index < len(str) && c >= '0' && c <= '9' {
+				for index < len(str) && str[index] >= '0' && str[index] <= '9' {
 					index++
 				}
 				secondOperate, _ := strconv.Atoi(str[start:index])
@@ -67,11 +64,12 @@ func TransferAndCompulateExpress() {
 }
 
 func computeResByType(a, b int, ot OperationType) int {
+	fmt.Println(a, b)
 	switch ot {
 	case t1:
 		return 2*a + 3*b + 4
 	case t2:
-		return 3*a + b + 4
+		return 3*a + b + 2
 	default:
 		return 0
 	}
