@@ -39,6 +39,7 @@ func main() {
 	//od.SumOfContinuousInterval()
 	//od.SplitAndTransferString()
 	//od.ContinuousCharLength()
-	od.TransferAndCompulateExpress()
-
+	//od.TransferAndCompulateExpress()
+	//od.ComputeMaxReturns()
+	od.DrawingMachine()
 }
