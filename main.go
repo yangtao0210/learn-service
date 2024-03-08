@@ -41,5 +41,7 @@ func main() {
 	//od.ContinuousCharLength()
 	//od.TransferAndCompulateExpress()
 	//od.ComputeMaxReturns()
-	od.DrawingMachine()
+	//od.DrawingMachine()
+	//od.AirportFlightScheduler()
+	od.Airs()
 }
