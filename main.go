@@ -43,5 +43,8 @@ func main() {
 	//od.ComputeMaxReturns()
 	//od.DrawingMachine()
 	//od.AirportFlightScheduler()
-	od.Airs()
+	//od.Airs()
+	//od.SearchGold()
+	//od.HeightOfThreeTree()
+	od.GamesOfABC()
 }
