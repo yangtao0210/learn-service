@@ -1,6 +1,9 @@
 package main
 
-import "learn_code/algrithm/od"
+import (
+	"fmt"
+	"learn_code/algrithm/od/interview"
+)
 
 func main() {
 	//od.TestSubstrLength()
@@ -46,5 +49,7 @@ func main() {
 	//od.Airs()
 	//od.SearchGold()
 	//od.HeightOfThreeTree()
-	od.GamesOfABC()
+	//examination.GamesOfABC()
+	//interview.ArrangementString()
+	fmt.Println(interview.Top1Nums([]int{1, 2, 3, 2, 4, 2, 4, 4}))
 }
