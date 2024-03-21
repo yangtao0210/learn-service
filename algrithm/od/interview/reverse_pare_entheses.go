@@ -2,6 +2,11 @@ package interview
 
 import "container/list"
 
+//题目描述：
+//给出一个字符串 s（仅含有小写英文字母和括号）。
+//请你按照从括号内到外的顺序，逐层反转每对匹配括号中的字符串，并返回最终的结果。
+//注意，您的结果中 不应 包含任何括号
+
 func ReverseParentheses(s string) string {
 	//当前字符为'(': 将str入栈，并将str置空
 	//当前字符为')': 反转str,并将该str添加到栈顶字符串末尾，结果赋给str，栈顶元素出栈
