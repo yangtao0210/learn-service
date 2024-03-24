@@ -1,4 +1,4 @@
-package interview
+package tanxin
 
 // n 个孩子站成一排。给你一个整数数组 ratings 表示每个孩子的评分。
 // 你需要按照以下要求，给这些孩子分发糖果：
@@ -18,7 +18,7 @@ func AssignCandies(ratings []int) int {
 	//第二次贪心策略：从右到左遍历：若左孩子分数较大，则其糖果数为max(当前糖果数，右孩子糖果数+1)==》防止覆盖前一次的值
 	for i := len(ratings) - 2; i >= 0; i-- {
 		if ratings[i] > ratings[i+1] {
-			candies[i] = max(candies[i], candies[i+1]+1)
+			candies[i] = Max(candies[i], candies[i+1]+1)
 		}
 	}
 	//求最小需要的糖果总数
@@ -28,7 +28,7 @@ func AssignCandies(ratings []int) int {
 	return res
 }
 
-func max(a, b int) int {
+func Max(a, b int) int {
 	if a > b {
 		return a
 	}

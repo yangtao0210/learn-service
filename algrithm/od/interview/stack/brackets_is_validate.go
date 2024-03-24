@@ -1,4 +1,4 @@
-package interview
+package stack
 
 import "container/list"
 

@@ -1,4 +1,4 @@
-package interview
+package lands
 
 // 题目：岛屿周长
 type pair struct {

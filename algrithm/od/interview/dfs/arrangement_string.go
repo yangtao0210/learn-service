@@ -1,4 +1,4 @@
-package interview
+package dfs
 
 import "fmt"
 
